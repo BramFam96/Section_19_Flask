@@ -1,9 +1,5 @@
-# Import flask like any other installed lib:
-from flask import Flask;
-
-# Instantiate a new application object:
-app = Flask(__name__);
-
-
+# NOTE routing is importing config file
+from routing import *
+# Get v Post
 
 
