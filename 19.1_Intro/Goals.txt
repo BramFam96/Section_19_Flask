@@ -1,0 +1,7 @@
+S19 Flask
+________________
+Web Server Intro:
+    Describe the purpose and responsibilities of a web framework
+    Set env vars for local Flask development;
+    Build a small web app
+    Handle GET and POST responses 

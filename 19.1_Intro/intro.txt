@@ -1,0 +1,17 @@
+Flask is a web framework -> it lets us build web apps in Python;
+    Frameworks are like libraries but beefier and more opinionated
+Flasks main competitor in terms of Py frameworks is Django; 
+
+Both include sets of funcs, classes, etc that help us:
+
+    Define requests to respond to
+    Handle requests, forms, cookies -> typically a dynamic HTML response
+
+Web apps in general need to do the above and also:
+
+    Connect to a database;
+    Provide user log in / log out
+    Cache pages for performance
+
+NOTE We could do this without flask, but its a nightmare;
+
