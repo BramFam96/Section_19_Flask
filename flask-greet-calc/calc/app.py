@@ -6,7 +6,7 @@ from operations import *
 # Instantiate a new application object:
 app = Flask(__name__);
 
-@app.rout('/add')
+@app.route('/add')
 def add_nums():
     
     a= int(request.args.get('a'))
@@ -14,7 +14,7 @@ def add_nums():
 
     return str(add(a,b))
     
-@app.rout('/add')
+@app.route('/sub')
 def sub_nums():
     
     a= int(request.args.get('a'))
@@ -22,7 +22,7 @@ def sub_nums():
 
     return str(sub(a,b))
     
-@app.rout('/mult')
+@app.route('/mult')
 def mult_nums():
     
     a= int(request.args.get('a'))
@@ -30,7 +30,7 @@ def mult_nums():
 
     return str(mult(a,b))
     
-@app.rout('/div')
+@app.route('/div')
 def div_nums():
     
     a= int(request.args.get('a'))
@@ -54,5 +54,5 @@ def do_maths(operation):
     a = int(request.args.get('a'))
     b = int(request.args.get('b'))
 
-    result = OPERATIONS[operation](a,b);
-    return str(result);
+
+    return str(OPERATIONS[operation](a,b));
