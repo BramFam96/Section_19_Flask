@@ -1,4 +1,4 @@
-from postbasics import *
+from querystring import *
 # Variable Routing
 
     # Rather than hardcode our routes we can let flask dynamically
