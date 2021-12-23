@@ -1,16 +1,24 @@
 # Imports:
 from source import *
-###################NOTE MOVED to source.py NOTE###################
+    
+    ###################NOTE MOVED to source.py NOTE###################
 
-#  Initialize toolbar:
+    #  Initialize toolbar:
+    
+        # from flask_debugtoolbar import DebugToolbarExtension;
+        # app.config['SECRET_KEY'] = 'something';
+    
+    # TODO env vars and debug sessions  #
 
-# from flask_debugtoolbar import DebugToolbarExtension;
+        # debug = DebugToolbarExtension(app);
 
-# app.config['SECRET_KEY'] = 'something';
-# TODO env vars and debug sessions  #
+    ###################NOTE MOVED to source.py NOTE###################
 
-# debug = DebugToolbarExtension(app);
+# Debug_toolbar only works on template rendered pages;
 
-###################NOTE MOVED to source.py NOTE###################
-
+    # Creates an interface that displays:
+        # Request vars
+        # HTTP headers
+        # Template Info
+        # Route List
 
