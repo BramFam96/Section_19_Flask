@@ -1,4 +1,4 @@
-from config import *
+from source import *
 # HTML Templating:
 # Instead of returning HTML strings in line
 # We can use Jinja to serve template files -> HTML, CSS, JS; 
@@ -20,6 +20,9 @@ from config import *
     # call render_template(html file)
 # Templating info
 
+@app.route('/')
+def home():
+    return render_template('hello.html')
 
 @app.route('/hello')
 def hello_page():
