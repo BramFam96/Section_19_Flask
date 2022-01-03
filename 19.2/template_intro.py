@@ -35,7 +35,12 @@ def random_add():
   # Flask does not simply serve a file 
   # It also reads over the file for python code;
   # Define dynamic variables
-  a = randint(1,100)
-  b =randint(1,100)
+  a = randint(1,5)
+  b =randint(1,5)
   # Pass variables into render func:
   return render_template('maths.html', a = a, b = b)
+  
+@app.route('/spell/<word>')
+def spell_word(word):
+  return render_template('spell_word.html', word=word)
+  

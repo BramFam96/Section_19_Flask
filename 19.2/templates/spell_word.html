@@ -4,15 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Random maths</title>
+		<title>Spell time</title>
 	</head>
 	<body>
-		<h1>{{a}}+{{b}} = {{a+b}}</h1>
-		<h2></h2>
-		{%if a+b == 5%}
-		<h2>Oh, a 5? That's my lucky number!</h2>
-		{%else%}
-		<h2>That's not my lucky number..</h2>
-		{%endif%}
+		<h1>Looping over {{word}}</h1>
+		<ul>
+			{%for let in word%}
+			<li>{{let}}</li>
+			{%endfor%}
+		</ul>
 	</body>
 </html>
