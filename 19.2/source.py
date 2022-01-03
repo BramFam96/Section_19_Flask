@@ -3,7 +3,7 @@
 from flask import Flask, request, render_template
 # Import debug toolbar:
 from flask_debugtoolbar import DebugToolbarExtension;
-from random import randint, choice;
+from random import randint, choice, sample;
 
 app = Flask(__name__);
 
