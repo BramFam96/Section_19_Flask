@@ -3,9 +3,8 @@
 # This can be any text wrapped in double curly brackets: {{}}
 # It works almost exactly like f strings;
 
-# NOTE These examples involve editing template files
-# NOTE These examples involve edits to our routing in template_intro;
-# This is integrated into our previous files, but paths and code are included here
+# NOTE These examples involve editing template files, and routingh in template_intro;
+# The following is integrated into other files, but paths and code are included here
     # Routing for first example: 
 # Template found at templates/maths.html;
 # @app.route('/maths')
