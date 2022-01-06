@@ -8,10 +8,15 @@
 		<title>{%block title%}{%endblock%}</title>
 	</head>
 	<body>
-		<h1>Greetings</h1>
+		<nav class="nav">
+			<a href="/">Home</a>
+			<a href="/form">Form-1</a>
+			<a href="/form-2">Form-2</a>
+		</nav>
+		{%block heading%} {%endblock%}
 		<!-- set action to greeting page -->
 
-		{%block form%} {%endblock%}
+		{%block content%} {%endblock%}
 	</body>
 </html>
 

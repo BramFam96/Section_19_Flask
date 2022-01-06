@@ -1,7 +1,9 @@
-{%extends 'form_base.html'%} {%block title%}Greet Form 1{%endblock%} {%block
-form%}
+{%extends 'base.html'%} {%block title%}Greet Form 1{%endblock%} {%block
+heading%}
+<h1>Greeting Form V1</h1>
+{%endblock%} {%block content%}
 <form action="/greet">
 	<input type="text" placeholder="your name" name="username" />
 	<button>Submit</button>
-	{%endblock%}
 </form>
+{%endblock%}
