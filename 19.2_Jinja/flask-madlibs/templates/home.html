@@ -1,0 +1,10 @@
+{%extends 'base.html'%} {%block content%}
+<h1>Let's make a madlib!</h1>
+<form action="/madlib">
+	{%for item in prompts%}
+	<p>{{item}}: <input name="{{item}}" /></p>
+
+	{%endfor%}
+	<button>Submit!</button>
+</form>
+{%endblock%}

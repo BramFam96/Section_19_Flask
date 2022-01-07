@@ -1,4 +1,3 @@
-import re
 from source import *;
 # NOTE Greeter pt 1 NOTE #
 
