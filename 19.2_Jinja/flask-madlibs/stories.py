@@ -28,9 +28,7 @@ class Story:
         """Substitute answers into text."""
 
         text = self.template
-        print(answers.items())
         for (key, val) in answers.items():
-            print(key,val)
             text = text.replace("{" + key + "}", val)
 
         return text
