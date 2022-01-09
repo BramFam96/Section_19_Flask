@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/static/app.css" />
+		<title>{%block title%}{%endblock%}</title>
+	</head>
+	<body>
+		<nav class="nav">
+			<a href="/">Home</a>
+			<a href="/form">Form-1</a>
+			<a href="/form-2">Form-2</a>
+		</nav>
+		{%block heading%} {%endblock%}
+		<!-- set action to greeting page -->
+
+		{%block content%} {%endblock%}
+	</body>
+</html>
+
+<!-- 
+    Store all unresolved promises in an array
+    pass array to promise all.
+
+    promises = []
+    promises.push(doSomething())
+
+    async function doSomething()
+
+    Promise.all(promises);
+
+    also:
+
+    const results = await Promise.all([
+    doSomething()
+    doSomething()
+    ])
+
+  const [user, history] = await Promise.all()
+  -->

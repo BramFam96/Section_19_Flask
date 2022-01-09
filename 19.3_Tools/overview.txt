@@ -1,0 +1,25 @@
+Flask Tools
+
+  Unlike previous sections flask tools will be a grab bag of important features
+
+Goals:
+  Redirecting
+  Flash messaging
+
+  Debugging Flask errors from error page;
+  Setting breakpoints with pdb;
+  Returning JSON
+
+Intro to redirecting:
+
+  Often used for validation;
+  Idea is to serve different pages, or messages based on first page header;
+  Also used when we change urls and want current users to easily adjust
+
+To redirect, the page header needs to contain the redirect status code, often 302;
+It also needs to contain a new URL for the browser to re-request;
+
+
+
+
+
