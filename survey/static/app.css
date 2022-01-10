@@ -1,0 +1,13 @@
+body {
+	background-color: beige;
+}
+nav {
+	display: flex;
+	align-items: center;
+}
+.err {
+	outline: 5px solid red;
+}
+.success {
+	outline: 5px solid green;
+}
