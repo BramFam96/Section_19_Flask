@@ -9,6 +9,7 @@ app = Flask(__name__);
 
 # Config and init toolbar:
 app.config['SECRET_KEY'] = 'secret';
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False;
 # TODO Env variables
 debug = DebugToolbarExtension(app);
 

@@ -1,9 +1,10 @@
 /19.1_Intro/flaskapp1/__pycache__
 /19.1_Intro/flaskapp1/venv
+/19.1_Intro/flask-greet-calc/venv
 
 /19.2_Jinja/venv
 /19.2_Jinja/flask-madlibs/venv
 /19.2_Jinja/flask-madlibs/__pycache__
 
-
-19.1_Intro/flask-greet-calc/venv
+/19.3_Tools/venv
+/19.3_Tools/__pycache__

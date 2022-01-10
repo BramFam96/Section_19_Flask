@@ -4,19 +4,31 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/static/app.css" />
+		<link rel="stylesheet" href="../static/app.css" />
 		<title>{%block title%}{%endblock%}</title>
 	</head>
 	<body>
 		<nav class="nav">
 			<a href="/">Home</a>
-			<a href="/form">Form-1</a>
-			<a href="/form-2">Form-2</a>
+			<a href="/movies">Movies</a>
 		</nav>
 		{%block heading%} {%endblock%}
-		<!-- set action to greeting page -->
+		<!-- When there are no messages an empty section still renders -->
+		<!-- Lets move our logic into main and render our sec conditionally -->
 
-		{%block content%} {%endblock%}
+		<!-- set action to greeting page -->
+		<main>
+			<!-- NEW BLOCK WITH BLOCK - unique to Jinja -->
+			<!-- USED TO MAKE A VAR IN THE WITH SCOPE -->
+			{%with messages = get_flashed_messages(with_categories=true)%} {%if
+			messages%}
+			<section class="flashes">
+				{%for cat, msg in messages%}
+				<p class="{{cat}}">{{ msg }}</p>
+				{%endfor%}
+			</section>
+			{%endif%} {%endwith%} {%block content%}{%endblock%}
+		</main>
 	</body>
 </html>
 
