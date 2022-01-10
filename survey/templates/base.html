@@ -7,48 +7,7 @@
 		<link rel="stylesheet" href="../static/app.css" />
 		<title>{%block title%}{%endblock%}</title>
 	</head>
-	<body>
-		<nav class="nav">
-			<a href="/">Home</a>
-			<a href="/movies">Movies</a>
-		</nav>
-		{%block heading%} {%endblock%}
-		<!-- When there are no messages an empty section still renders -->
-		<!-- Lets move our logic into main and render our sec conditionally -->
-
-		<!-- set action to greeting page -->
-		<main>
-			<!-- NEW BLOCK WITH BLOCK - unique to Jinja -->
-			<!-- USED TO MAKE A VAR IN THE WITH SCOPE -->
-			{%with messages = get_flashed_messages(with_categories=true)%} {%if
-			messages%}
-			<section class="flashes">
-				{%for cat, msg in messages%}
-				<p class="{{cat}}">{{ msg }}</p>
-				{%endfor%}
-			</section>
-			{%endif%} {%endwith%} {%block content%}{%endblock%}
-		</main>
+	<body class="flex">
+		<main class="flex">{%block content%}{%endblock%}</main>
 	</body>
 </html>
-
-<!-- 
-    Store all unresolved promises in an array
-    pass array to promise all.
-
-    promises = []
-    promises.push(doSomething())
-
-    async function doSomething()
-
-    Promise.all(promises);
-
-    also:
-
-    const results = await Promise.all([
-    doSomething()
-    doSomething()
-    ])
-
-  const [user, history] = await Promise.all()
-  -->

@@ -1,13 +1,27 @@
-body {
-	background-color: beige;
+* {
+	box-sizing: border-box;
 }
-nav {
+body {
+	margin: 0;
+	padding: 0;
+	background-color: beige;
+	width: 100vw;
+	height: 100vh;
+}
+main > * {
+	flex-direction: column;
+}
+main {
+	margin: 25%;
+	flex: 1 1 100%;
+	border: 2px solid black;
+	padding: 3rem;
+	border-radius: 5%;
+	flex-direction: column;
+	min-width: 300px;
+}
+.flex {
 	display: flex;
 	align-items: center;
-}
-.err {
-	outline: 5px solid red;
-}
-.success {
-	outline: 5px solid green;
+	justify-content: center;
 }

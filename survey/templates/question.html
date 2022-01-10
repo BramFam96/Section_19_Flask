@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+<!--  -->
+{%block title%} Question {{q_num}} {%endblock%}
+<!-- -->
+{%block content%} {%for msg in get_flashed_messages()%}
+<p>{{ msg }}</p>
+{%endfor%}
+<p>Question{{q_num + 1}}</p>
+<h1>{{question['question']}}</h1>
+<form action="/update-responses" method="POST" class="flex">
+	{%for choice in question['choices']%}
+	<div class="flex choice">
+		<input type="radio" name="answer" value="{{ choice }}" />
+		<p>{{choice}}</p>
+	</div>
+
+	{%endfor%} {%if question.allow_text%}
+	<textarea name="text" value="text"></textarea>
+	{%endif%}
+	<button>Next</button>
+</form>
+
+{%endblock%}
+<!-- -->
