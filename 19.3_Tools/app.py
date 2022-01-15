@@ -51,6 +51,6 @@ def show_movie_json():
   # NOTE we need to pass a header to label our JSON as such;
   # Flask has a built in func jsonify() which will set this header for us;
   # Does not work on sets
-  py_res = jsonify(MOVIES)
-  return py_res
+  json_res = jsonify(MOVIES)
+  return json_res
 

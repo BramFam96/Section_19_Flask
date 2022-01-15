@@ -17,5 +17,5 @@
 
 # We would remove this before making it public;
 # PDB comes with the same methods as javascripts advanced debugger:
-# step through,
+
 # Check the handout for commands;

@@ -12,11 +12,11 @@
 			<a href="/">Home</a>
 			<a href="/movies">Movies</a>
 		</nav>
-		{%block heading%} {%endblock%}
-		<!-- When there are no messages an empty section still renders -->
-		<!-- Lets move our logic into main and render our sec conditionally -->
-
-		<!-- set action to greeting page -->
+		{%block heading%}
+		<!--  -->
+		{%endblock%}
+		<!-- Our flash section was here, but was rendering empty when msgs didn't exist -->
+		<!-- We moved it into the main section below to render it conditionally -->
 		<main>
 			<!-- NEW BLOCK WITH BLOCK - unique to Jinja -->
 			<!-- USED TO MAKE A VAR IN THE WITH SCOPE -->
@@ -27,7 +27,9 @@
 				<p class="{{cat}}">{{ msg }}</p>
 				{%endfor%}
 			</section>
-			{%endif%} {%endwith%} {%block content%}{%endblock%}
+			{%endif%} {%endwith%}
+			<!--  -->
+			{%block content%}{%endblock%}
 		</main>
 	</body>
 </html>
