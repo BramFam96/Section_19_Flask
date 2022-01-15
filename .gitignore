@@ -12,3 +12,4 @@
 /survey/venv
 /survey/__pycache__
 /19.4_Cookies/flask-session-demo/secret.py
+/19.5_Testing/venv
