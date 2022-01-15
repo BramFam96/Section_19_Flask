@@ -2,9 +2,7 @@
 <!--  -->
 {%block title%} Question {{q_num}} {%endblock%}
 <!-- -->
-{%block content%} {%for msg in get_flashed_messages()%}
-<p>{{ msg }}</p>
-{%endfor%}
+{%block content%}
 <p>Question{{q_num + 1}}</p>
 <h1>{{question['question']}}</h1>
 <form action="/update-responses" method="POST" class="flex">

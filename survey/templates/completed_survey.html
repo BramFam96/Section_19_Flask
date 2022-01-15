@@ -10,9 +10,9 @@
 	{%for question in survey.questions%}
 	<li>
 		<p>{{question.question}}</p>
-		<p><i>{{responses[loop.index0]['answer']}}</i></p>
-		{%if responses[loop.index0]['text'] != ''%}
-		<p><i>{{responses[loop.index0]['text']}}</i></p>
+		<p><i>{{session['responses'][loop.index0]['answer']}}</i></p>
+		{%if session['responses'][loop.index0]['text'] != ''%}
+		<p><i>{{session['responses'][loop.index0]['text']}}</i></p>
 		{%endif%}
 	</li>
 	{%endfor%}

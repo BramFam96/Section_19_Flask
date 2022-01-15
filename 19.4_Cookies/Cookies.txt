@@ -1,0 +1,91 @@
+______________________________________________________________________
+Browser Storage
+______________________________________________________________________
+HTTP is stateless- data does not persist between loads;
+  ie every request is independent of eachother;
+
+Problem:
+We need to tie down some data between page loads- items, users, subs, etc;
+-------------------------------------------------------------------------
+Types of Storage Solutions
+-------------------------------------------------------------------------
+Local Storage:
+Large storage limit 5/10mb, no experation date, domain specific -> never sent to server;
+
+Browser storage;
+-------------------------------------------------------------------------
+Session Storage
+    *****Not to be confused with flask session!******
+Works like Local storage, but clears on browser close;
+5mb limit
+Used for data on session activity;
+-------------------------------------------------------------------------
+Cookies
+  The only storage option that can be sent to a server;
+  Long-term trackers for persitent data;
+  4kb limit;
+______________________________________________________________________
+
+Intro to Cookies:
+______________________________________________________________________
+Stored like localStorage data with the format:
+
+  Site/ Cookie Name/ Value
+
+Order of Events:
+Browser: sends initial request to server;
+Server: Serves the HTML, also- reminds Browser to track specific information
+Browser: stores the information
+Browser: continues making requests, but incudes this data in the header each time;
+
+______________________________________________________________________
+
+Viewing Cookies:
+______________________________________________________________________
+Dev tools -> Applications -> Storage -> Cookies
+Cookies are purposely unreadable; 
+Websites typically store many cookies for things like ads, sessions, items, etc;
+We can manually add and delete them -> the browser will correct on new reqs;
+______________________________________________________________________
+
+Reading Cookies:
+______________________________________________________________________
+Cookies are included in flasks request object -> request.cookies.get('cookie_name');
+@app.route('/cookie')
+def cookie_example():
+  '''An example page that uses cookies'''
+  fav_color = request.cookies.get('fav_color', '<unset>')
+  return render_template('cookie_example.html', fav_color=fav_color)
+
+  For this demo, the cookies in our memory are displayed on every page
+  Check app.py line 15 and template/state-debug
+
+______________________________________________________________________
+
+Setting Cookies:
+______________________________________________________________________
+--------------------------DISCLAIMER----------------------------------
+Setting cookies with flask is tedious!
+It requires us to better understand what flask does in the background
+Know that there's a better way!
+---------------------------------------------------------------------
+Background:
+When we return render template from a func we never actually set a response obj;
+In order to set a cookie on our response we'll have to change flasks default behavior:
+
+Let's pick this up at app.py line 37:
+---------------------------------------------------------------------
+Cookie Options:
+
+Expiration:
+ default: 'as long as browser is running' can be set to other times;
+Domain: 
+How should this data be restricted?
+  Send only to shop.site.com or everything at site.com?
+HTTPOnly: not accessible via javascript:
+  Ensures data stays server-side;
+These can be set manually, but very tedious;
+--------------------------------------------------------------------
+Sessions are the compliment to Cookies that allow the web to work as
+we expect!
+See Sessions.txt

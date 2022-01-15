@@ -1,0 +1,37 @@
+Flask Sessions:
+----------------------------------------------------------------------
+Intro
+----------------------------------------------------------------------
+
+Flask has another built in tool called Sessions;
+Sessions are basically an improvement upon cookies:
+
+1) Much easier for devs: no make_response or set_cookie;
+
+2) Can store and preserve any data type-> no tedious string conversions;
+
+3) More secure; Data is 'signed' to prevent user modification
+------------------------------------------------------------------------
+Order of Operations:
+------------------------------------------------------------------------
+import session from flask
+Set the secret_key
+
+See app.py line 29 for set up and Intro
+examples can be found starting at app.py line 108
+----------------------------------------------------------------------
+Recap/How it works
+----------------------------------------------------------------------
+Sessions exist in every framework, but can be handled differently
+
+Client-side sessions:
+In flask, session data is stored as a cookie in the browser 
+To protect this data, these cookies are serialized and signed;
+----------------------------------------------------------------------
+Server-side sessions:
+Some frameworks store session data on the server instead of client;
+The client then stores a session key cookie -> not the data itself;
+Useful as we approach the 4kb limit on local cookies
+Flask supports server-side sessions with an add-on confusingly named flask-session
+pip install Flask-Session -> check flask-session documentation;
+

@@ -8,6 +8,22 @@
 		<title>{%block title%}{%endblock%}</title>
 	</head>
 	<body class="flex">
-		<main class="flex">{%block content%}{%endblock%}</main>
+		<main class="flex">
+			{%with messages = get_flashed_messages(with_categories=true)%}
+			<!--  -->
+			{%if messages%}
+			<section class="flashes">
+				{%for cat, msg in messages%}
+				<h1 class="{{cat}}">{{ msg }}</h1>
+				{%endfor%}
+			</section>
+			{%endif%}
+			<!--  -->
+			{%endwith%}
+			<!--  -->
+			{%block content%}
+			<!--  -->
+			{%endblock%}
+		</main>
 	</body>
 </html>
