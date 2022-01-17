@@ -1,4 +1,4 @@
-FLASK TESTING
+AUTOMATED TESTING WITH FLASK
 
 Types
 Methods
@@ -6,38 +6,129 @@ unittest module
 setUp and tearDown
 
 -----------------------------------------------------------------------------------
-Why Test?
-
------------------------------------------------------------------------------------
 TYPES OF TESTING
 
 -----------------------------------------------------------------------------------
-Unit test
-Integration
-End-to-end
+Unit tests -> testing individual funcs and vars -> a handles 0? a returns x?
+  Promotes modular code;
+Integration -> testing multiple funcs and vars -> does a pass x to b? does b pass y to c?
+End-to-end -> testing entire process -> user can log in? logged in user can post? posts save in server?
+-----------------------------------------------------------------------------------
 
-Assertion
+We use all of these tests, with volume and order directly related to their efficiency/complexity:
+Many, granular unit tests -> Fewer, generalized Integration tests -> Very few, complex end-to-end tests;
 
+Following this order will keep our errors diagnosable;
+
+Assertion testing
+Python has a standard method: assert;
+
+def add_nums(a,b)
+  return a+b
+#assert add_nums(2,5) == 7#
+
+Python will raise an error if assert fails, and direct us to this line;
+In doing so py will stop execution; this is one of asserts main drawbacks;
 -----------------------------------------------------------------------------------
 METHODS
 
 -----------------------------------------------------------------------------------
-Doctests
-unittest - unittest is Py's built-in testing module;
-  Has functionality for many types of testing- unit, testing, end-to-end;
+DocTests - 'Testable documentation'
+-----------------------------------------------------------------------------------
+EXAMPLE
+-----------------------------------------------------------------------------------
+def add_nums(a,b)
+'''
+Adds two nums
+>>>add_nums(1,2) 
+3
+>>> add_nums(-1,-2)
+-3
+'''
+  return a+b
+-----------------------------------------------------------------------------------
+USING DocTests:
+
+Remember, these do not show up with python3 filename or ipython -> %run filename;
+We can view this whole docstring by running the file, and calling help(add_nums)
+
+To actually run the tests:
+(Within our venv where py defaults to python3)
+python -m doctest filename.py
+
+There will be NO OUTPUT if things go well; To see passing tests we modify doctest w/ -v flag;
+
+python -m doctest -v filename.py
+
+the verbose flag, -v, also greatly improves our error output (expect and got values)
+
+We still don't use these to achieve full test coverage; they're too tedious and chunky;
+Instead, doctests should be used for quick error checking or actual documentation;
+-----------------------------------------------------------------------------------
+Unittest
+-----------------------------------------------------------------------------------
+ unittest is Py's built-in unit testing module;
+  Includes Methods for unit, integration, and end-to-end testing;
+-----------------------------------------------------------------------------------
+Fundamentals:
+-----------------------------------------------------------------------------------
+Unittest allows us to test via classes in seperate files from our funcs themselves;
+  It is a framework, and as such, comes with its own rules and structures that allow
+  for prebuilt assertions -> equality, truth, raiseError;
+-----------------------------------------------------------------------------------
+UNIT TESTING with unittest
+
+from ourfile import add_num;
+from unittest import TestCase;
+  #We make a class that inherits TestCase:
+class AddNumTestCase(TestCase)
+  ''' Unit test examples '''
+  #func we define must start with test_* and inherit self;
+  def test_add_num(self)
+    #This is where the many assertions built into TestCase come into play:
+     self.assertEqual(add_num(2,3), 5)
+
+python -m unittest NAMEOFFILE;
+Better: CTRL+SHIFT+P -> Test: Run All Tests -> Configure to directory
+Enables unittesting GUI; 
+-----------------------------------------------------------------------------------
+INTEGRATION TESTING fundamentals
+-----------------------------------------------------------------------------------
+Testing how componenets work together:
+
+- Does URL path map to specific function?
+- Does route return correct HTML, status code?
+- After POST- do we redirect?
+- After route- did session update?
+
+We do not need to have our application running to run integration tests, in fact,
+they'll finish quicker if it isn't;
+---------------------------------------------------------------------------------
+TEST_CLIENT
+---------------------------------------------------------------------------------
+Flask provides us with a structure to model a client without having one
+In a test method we'd write:
+
+from app import app
+...
+def test_something(self):
+  with app.test_client() as client:
+    #can now make requests to flask via 'client'
+  
+see flask_testing_demo/test_app.py
 
 -----------------------------------------------------------------------------------
-unittest - intro, practice, vscode;
+Concerns:
+If logic is included in the view function, we will have wonky tests;
+Each test will need to create a new test_client and html each time we test the logic;
+Seperating our logic will make this much easier;
 
+Remember to test failing things -> what if nothing is submitted?
 -----------------------------------------------------------------------------------
-Intro
+Organizing tests:
+Small projects -> tests in one python file
+Larger projects -> organize them by test_something; keep them in directory
+Big 'Ol projects -> expect directory subdivided by category
 
------------------------------------------------------------------------------------
-Example
-
------------------------------------------------------------------------------------
-THINGS TO TEST
-
-Routes -> exists? expected html? status code?
-POST Requests -> submits? redirects?
-Session ->  
+Can run specific things:
+python -m unittest test_app.AppTestCase.test_render
