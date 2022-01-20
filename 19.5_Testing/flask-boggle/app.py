@@ -21,7 +21,7 @@ def homepage():
                            nplays=nplays)
 
 
-@app.route("/handle-guess")
+@app.route("/check-word")
 def check_word():
     """Check if word is in dictionary."""
 
