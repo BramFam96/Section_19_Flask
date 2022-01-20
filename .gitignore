@@ -14,3 +14,4 @@ survey/__pycache__
 19.4_Cookies/flask-session-demo/secret.py
 19.5_Testing/unittest_examples/venv
 19.5_Testing/flask-boggle/venv
+19.5_Testing/flask-boggle/__pycache__
